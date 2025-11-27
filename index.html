@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Health Monitor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="/static/paillier.js"></script>
+    <script src="/static/app.js" defer></script>
+    <style>
+        body { padding: 2rem; font-family: Arial, sans-serif; }
+        .abnormal { color: red; font-weight: bold; }
+        .normal { color: green; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Secure Health Monitor (Paillier Encrypted)</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Submit Reading</h2>
+                <form id="readingForm">
+                    <div class="mb-3">
+                        <label>Sensor ID (optional): <input class="form-control" type="text" id="sensor_id" value="browser"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Heart Rate (bpm): <input class="form-control" type="number" id="heart_rate"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label>SpO2 (%): <input class="form-control" type="number" id="spo2"></label>
+                    </div>
+                    <div class="mb-3">
+                        <label>Temperature (°C): <input class="form-control" type="number" step="0.1" id="temperature"></label>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Submit Encrypted Reading</button>
+                    <button class="btn btn-warning ms-3" type="button" id="resetBtn">Reset All Data</button>
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Live Aggregated Averages</h2>
+                <div id="status">Loading...</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
